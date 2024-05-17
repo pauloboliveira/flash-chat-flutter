@@ -9,11 +9,41 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin {
+
+  late AnimationController controller;
+  late Animation animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller = AnimationController(
+        vsync: this,
+        duration: const Duration(seconds: 1)
+    );
+
+    animation = ColorTween(begin: Colors.blueGrey, end: Colors.white).animate(controller);
+
+    controller.forward();
+    controller.addListener(() {
+      setState(() {
+
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: animation.value,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -30,8 +60,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                 ),
                 const Text(
-                  'Flash Chat Flutter',
-                  style: TextStyle(
+                  'Flash Card',
+                  style: const TextStyle(
                     color: Colors.grey,
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
