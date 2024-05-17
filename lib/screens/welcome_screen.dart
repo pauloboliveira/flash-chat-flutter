@@ -30,7 +30,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                 ),
                 const Text(
-                  'Flash Chat',
+                  'Flash Chat Flutter',
                   style: TextStyle(
                     color: Colors.grey,
                     fontSize: 45.0,
