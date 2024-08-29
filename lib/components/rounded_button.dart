@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../screens/login_screen.dart';
-
 class RoundedButton extends StatelessWidget {
-  const RoundedButton({Key? key, this.onPressed, required this.textTitle, this.color}) : super(key: key);
+  const RoundedButton({Key? key, required this.onPressed, required this.textTitle, this.color}) : super(key: key);
 
   final VoidCallback? onPressed;
   final String textTitle;
@@ -24,6 +21,7 @@ class RoundedButton extends StatelessWidget {
           height: 42.0,
           child: Text(
             textTitle,
+            style: const TextStyle(color: Colors.white),
           ),
         ),
       ),
